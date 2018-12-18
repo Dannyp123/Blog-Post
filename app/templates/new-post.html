@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block body %}
+<div class="row">
+    <div class="col"></div>
+    <div class="col-sm-6">
+        <div class="card mt-3">
+            <div class="card-header bg-primary">
+                <h1 class="pt-2 pb-2 text-center text-white font-weight-bold">
+                    Welcome to the Van Der Son Blog!
+                </h1>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'new-post' %}" method="POST">
+                    {% csrf_token %}
+                    {{form}}
+                    <div class="d-flex justify-content-around">
+                        <button type="submit" class="btn btn-success my-3">Submit</button>
+                        <a role="button" href="{% url 'home' %}" class="btn btn-primary text-white my-3">Go Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+    {% endblock body %}
+</div>

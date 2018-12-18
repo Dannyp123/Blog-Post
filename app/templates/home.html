@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block body %}
+<div class="row">
+    <div class="col"></div>
+    <div class="col-sm-6">
+        <div class="card mt-3">
+            <div class="card-header bg-primary">
+                <h1 class="pt-2 pb-2 text-center text-white font-weight-bold">
+                    Welcome to the Van Der Son Blog!
+                </h1>
+            </div>
+            <div class="card-body text-left ml-3">
+                {% for post in blog_post %}
+                <a id="links" href="{% url 'blog-post' post.id %}">
+                    <h2 class="text-dark pb-1">{{ post.title }}</h2>
+                    <h4 class="text-dark pb-2">{{ post.author }} - {{ post.date }}</h4>
+                    <p class="pb-4">
+                        {{ post.body | truncatechars:100 }}
+                    </p> 
+                </a>
+                {% endfor %}
+            </div>
+            <div class="align-content-left">
+                <a role="button" class="btn btn-success w-25 mb-5 ml-4" href="{% url 'new-post' %}">
+                    <h3>New Post!</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+    {% endblock body %}
+</div>
